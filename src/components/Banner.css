@@ -1,0 +1,17 @@
+.banner-img{
+    width: 100%;
+    z-index: -1;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgb(0,0,0,0));
+}
+
+@media screen and (min-width: 600px) {
+  .banner-img{
+    margin-bottom: -100px;
+}
+}
+
+@media screen and (min-width: 900px) {
+  .banner-img{
+    margin-bottom: -150px;
+}
+}
