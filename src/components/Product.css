@@ -52,3 +52,18 @@
 .product-header > button:hover{
   opacity: 1;
 }
+
+@media screen and (min-width: 680px) {
+  .product-header > button{
+    max-width: 150px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .product-header{
+    max-width: 960px;
+  }
+  .product-header > button{
+    max-width: 200px;
+  }
+}
