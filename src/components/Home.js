@@ -8,7 +8,6 @@ import Product from './Product'
 import './Home.css'
 
 
-
 const Home = () => {
     return (
 
@@ -28,5 +27,4 @@ const Home = () => {
         </section>
     )
 }
-
 export default Home

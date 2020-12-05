@@ -1,5 +1,7 @@
 .checkout-header{
     display: flex;
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px;
     background-color: whitesmoke
 }
@@ -68,4 +70,16 @@ height: 100px;
 
 .checkout-delete:hover{
     opacity: 1;
+}
+
+@media screen and (min-width: 960px) {
+  .checkout-header{
+      max-width: 1150px;
+  }
+
+  .checkout-delete{
+    display: flex;
+    justify-content: center;
+    max-width: 200px;
+  }
 }

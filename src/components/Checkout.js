@@ -6,21 +6,22 @@ const Checkout = () => {
     
     // Initialize the store to get all its power
     const [state, dispatch] = useStateValue()
+    
+    
 
-    const getTotal = (amount, item) => {
-        return item.price + amount
-    }
+    // Get the total price in the basket
+    let getsum = 0
+    getsum = state.basket.reduce((old, newVal) =>{
+        return old + newVal.price;
+    }, 0);
+    
 
-    // Get the basket total price
-    const getBasketTotal = (state) => {
-    state.basket?.reduce(getTotal, 0)
-    };
-    //console.log(getBasketTotal)
+
   const deleteFromBasket = id => {
         dispatch({
             type: 'DELETE_FROM_BASKET',
             item: {
-                id: id,   
+                id: id,
             }
         })
     }
@@ -51,7 +52,7 @@ const Checkout = () => {
                                     }
                                         )
                                     }
-                            <button className="checkout-delete" onClick={()=>deleteFromBasket(item.id)}> Delete Item</button>            
+                            <button className="checkout-delete" onClick={console.log("clicked")}> Delete Item</button>            
                                     
                     </div>
                 </div>
@@ -62,7 +63,8 @@ const Checkout = () => {
             
          
             <div className="checkout-right">
-                <h4>Hello from left</h4>
+                <p>You have {state.basket.length} {state.basket.length < 2 ? 'item': 'items'} in your Cart</p>
+                <p>The Total Sum is: {getsum}</p>
             </div>
 
         </section>
