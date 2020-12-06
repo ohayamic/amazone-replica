@@ -80,7 +80,7 @@ div>p{
     font-weight: 500;
 }
 
-div>span{
+div > span{
     display: block;
     margin-top: -2px;
     font-size: 12px;
@@ -92,6 +92,7 @@ div>span{
     margin-top: 20px;
     color: white;
 }
+
 .header-cart{
     display: flex;
     font-size:26px;
@@ -106,6 +107,7 @@ div>span{
 header{
     grid-template-columns: 1fr 3fr 2fr;
 }
+
 .header-search > input{
     width: 90%;
 }
@@ -120,15 +122,31 @@ header{
     margin-right: 15px;
     margin-top: 15px;
 }
+
 .header-search > input{
     width: 95%;
 }
 
-.header-children > div>p{
-    font-size: 13px;
+.header-children > div > p{
+    font-size: 14px;
     font-weight: 500;
 }
-.header-children > div>span{
+.header-children .login{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.login > div > p{
+    font-size: 14px;
+}
+
+.login > div > span{
+    font-size: 14px;
+}
+.header-children > div > span{
     font-size: 16px;
     font-weight: 500;
 }
