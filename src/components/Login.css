@@ -1,0 +1,19 @@
+.login-body{
+    background-color: rgb(37, 36, 36);
+    margin: 100px auto 20px;
+    width: 40%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-body > img{
+    object-fit: contain;
+    margin-top: 10px;
+}
+
+form{
+    text-align: center;
+}
