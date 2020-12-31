@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Checkout from './components/Checkout'
 import Home from './components/Home'
 import Login from './components/Login'
+import SignUp from './components/SignUp'
 
 
 
@@ -16,6 +17,9 @@ const App = () =>{
         <Switch>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
           </Route>
           <Route path="/checkout">
             <Checkout />
