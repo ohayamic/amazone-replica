@@ -17,11 +17,11 @@ const Checkout = () => {
     
 
 
-  const deleteFromBasket = id => {
+    const deleteFromBasket = (id) => {
         dispatch({
             type: 'DELETE_FROM_BASKET',
             item: {
-                id: id,
+                id: id
             }
         })
     }
@@ -36,11 +36,13 @@ const Checkout = () => {
                 <h3>Your Basket is ready</h3>
                 {state.basket.map((item) => {
                     return (
+                
                 <article style={{marginBottom:"5px"}} key={item.id}>
                 <div className="checkout-content" >
                     <div className="checkout-content-img">
                         <img src={item.image} alt="content-img" />
                     </div>
+                    
                     <div className="checkout-content-boby">
                             <p>{item.title.length>=70? `${item.title.slice(0, 70)} ...`: item.title}</p>
                                 <small>{`$ ${item.price}`}</small>
@@ -55,11 +57,12 @@ const Checkout = () => {
                                     }
                                 </div>   
                                     
-                            <button className="checkout-delete" onClick={console.log("clicked")}> Delete Item</button>            
+                            <button className="checkout-delete" onClick={()=>deleteFromBasket(item.id)}> Delete Item</button>            
                                     
-                    </div>
+                    </div>     
+                    
                 </div>
-                </ article>
+            </ article>
                 )
                 })}
             </div>

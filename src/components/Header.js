@@ -7,14 +7,14 @@ import './Header.css'
 const Header = () => {
 
       //initialize to use for dispatching
-    const [state, dispatch] = useStateValue()
+    const [state] = useStateValue()
     //console.log(state.basket)
 
     return (
         <header >
             <section className="header-logo">
                 <span><FontAwesomeIcon icon={faBars} /></span>
-                <Link to="/" ><img className="header-img" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="amazone-clone" /></Link>
+                <Link to="/" ><img className="header-img" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="amazone-logo" /></Link>
             </section>
             <section className="header-search">
                 <input type="text" placeholder="Search" />
