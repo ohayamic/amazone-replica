@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
-import {auth, db} from '../firebase'
+import { Link, withRouter } from 'react-router-dom'
+import firebase from 'firebase'
+import {auth} from '../firebase'
 //import image from '../images.jpg'
 import './Login.css'
-const Login = () => {
+const Login = ({history}) => {
     const [userInfo, setUserInfo] = useState({
         email: '',
         password: '',
@@ -17,7 +18,22 @@ const Login = () => {
 
     const submitForm = (e) => {
         e.preventDefault()
-        console.log(userInfo)
+        // get the content of DB
+        //const getdb = db.collection('userInfo').onSnapshot
+        auth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
+            auth.signInWithEmailAndPassword(userInfo.email, userInfo.password).then(cred => { 
+            if (cred.user.email === userInfo.email) {
+                history.push('/checkout')
+            } else {
+                history.push('/login')
+            }
+                })
+         }).then(() => {
+                    console.log("redirected")
+                })
+
+        
+
     }
     return ( 
         <div className="login-header">
@@ -43,4 +59,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default withRouter(Login)

@@ -1,4 +1,5 @@
 import React from 'react'
+import { auth } from '../firebase'
 import { Link } from 'react-router-dom'
 import {useStateValue} from './StateProvider'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,10 +7,9 @@ import { faBars, faShoppingCart, faSearch } from "@fortawesome/free-solid-svg-ic
 import './Header.css'
 const Header = () => {
 
-      //initialize to use for dispatching
-    const [state] = useStateValue()
-    //console.log(state.basket)
-
+      //initialize to use for dispatching    
+    const [state] = useStateValue() 
+    let user = auth.currentUser
     return (
         <header >
             <section className="header-logo">
@@ -21,13 +21,20 @@ const Header = () => {
                 <button><FontAwesomeIcon icon={faSearch} /></button>
             </section>
             <section className="header-children">
+                {user ?
+                <Link to="/signout" className="login">
+                    <div>
+                        <p>Hello, Sign Out</p>
+                        <span>Account List</span>
+                    </div>
+                </Link> :
                 <Link to="/login" className="login">
                     <div>
                         <p>Hello, Sign in</p>
-                        <span>Account & List</span>
+                        <span>Account List</span>
                     </div>
-                </Link>
-                
+                </Link>    
+            }  
                 <div>
                     <p>Returns</p>
                     <span> & Orders</span>

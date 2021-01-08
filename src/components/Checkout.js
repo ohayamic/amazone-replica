@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import {useStateValue} from './StateProvider'
 
 import "./Checkout.css"
@@ -26,8 +27,6 @@ const Checkout = () => {
         })
     }
 
-
-
     return (
 
         <section className="checkout-header">
@@ -45,7 +44,7 @@ const Checkout = () => {
                     
                     <div className="checkout-content-boby">
                             <p>{item.title.length>=70? `${item.title.slice(0, 70)} ...`: item.title}</p>
-                                <small>{`$ ${item.price}`}</small>
+                                <small>{`$${item.price}`}</small>
                                 <div style={{display:"flex", marginBottom:"10px"}}>
                                     {Array(item.rating).fill().map((_, i) => {
                                         return (
@@ -71,7 +70,13 @@ const Checkout = () => {
             <div className="checkout-right">
                 <div>
                     <p>You have {state.basket.length} {state.basket.length < 2 ? 'item': 'items'} in your Cart</p>
-                    <p>The Total Sum is: {getsum}</p>
+                    <p>The Total Sum is: ${getsum}</p>
+                    <div>
+                        <span><input type="checkbox" /> have a coupon?</span>
+                    </div>
+                    <Link to='/payment'>
+                        <button className="checkout__payment">Make Payment</button>
+                    </Link>
                 </div>
                 
             </div>

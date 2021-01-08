@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
-import {auth, db} from '../firebase'
+import {Link, withRouter} from 'react-router-dom'
+import { auth, db } from '../firebase'
+import firebase from 'firebase'
 //import image from '../images.jpg'
+//auth.onAuthStateChanged(user => {}) use to track user status
 import './Login.css'
-const Login = () => {
+const Login = ({history}) => {
     const [userInfo, setUserInfo] = useState({
         email: '',
         username: '',
@@ -19,7 +21,26 @@ const Login = () => {
 
     const submitForm = (e) => {
         e.preventDefault()
-        console.log(userInfo, userInfo.username)
+        if (userInfo.password === userInfo.rpassword) {
+            auth.setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
+                auth.createUserWithEmailAndPassword(userInfo.email, userInfo.password).then(cred => {
+            if (cred.user.email === userInfo.email) {
+                history.push('/checkout')
+            }
+                return db.collection('userInfo').doc(cred.user.uid).set({
+                    email: userInfo.email,
+                    password: userInfo.password,
+                    username: userInfo.username
+                })
+            }).then(() => {
+                console.log("data added to collection")
+
+            })
+            })
+
+        } else {
+            console.log("information entered is not correct")
+        }
     }
     return ( 
         <div className="login-header">
@@ -35,7 +56,8 @@ const Login = () => {
                 
                  <div>
                     <label>User name</label>
-                    <input type="text"  placeholder="User name" name ="username" value={userInfo.username} onChange={handleChange }/>
+                    <input type="text" placeholder="User name" name="username" value={userInfo.username} onChange={handleChange} />
+                    <p style={userInfo.username.length < 5?{color:"red"}:{color:"blue"} }></p>
                 </div>
                 <div>
                     <label>Password</label>
@@ -53,4 +75,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default withRouter(Login)

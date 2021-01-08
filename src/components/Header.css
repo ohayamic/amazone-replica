@@ -2,7 +2,7 @@ header{
     background-color: black;
     height: 62px;
     display: grid;
-    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-columns: 1fr 2fr 2fr;
     column-gap: 5px;
     justify-items: stretch;
     color: blanchedalmond;
@@ -10,9 +10,9 @@ header{
 }
 
 .header-logo{
-    margin-left: 15px;
+    margin-left: 10px;
     display: flex;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: lighter;  
 }
 
@@ -25,20 +25,20 @@ header{
 
 .header-img{
     object-fit: contain;
-    height: 35px;
+    height: 30px;
     margin-top: 15px;
     background: transparent;
     cursor: pointer;
 }
 
 .header-search > input{
-    width: 95%;
+    width: 90%;
     padding: 5px;
-    height: 28px;
+    height: 30px;
     border-radius: 5px;
     border-color: rgb(212, 145, 21);
     border-style: solid 1px;
-    margin-top: 13px;
+    margin-top: 10px;
 }
 
 .header-search > button{
@@ -48,6 +48,7 @@ header{
     height: 40px;
     width: 45px;
     border-radius: 5px;
+    border-color: transparent;
     border-style: none;
     opacity: 0.8;
     background: rgb(212, 145, 21);
@@ -65,13 +66,15 @@ header{
     text-decoration: none;
     color: white;
     cursor: pointer;
-    margin-right: 10px;
+    width: 40%;
+    margin-right: 5px;
     margin-top: 20px;
 }
 .header-children>div{
     color: white;
     cursor: pointer;
-    margin-right: 10px;
+    width: 30%;
+    margin-right: 5px;
     margin-top: 20px;
 }
 
@@ -83,23 +86,24 @@ div>p{
 div > span{
     display: block;
     margin-top: -2px;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 500;
 }
 
 .link > div{
-    margin-right: 15px;
+    width: 30%;
+    margin-right: 5px;
     margin-top: 20px;
     color: white;
 }
 
 .header-cart{
     display: flex;
-    font-size:26px;
+    font-size:20px;
 }
 .header-cart>span{
     display: block;
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 10px;
 }
 
@@ -108,8 +112,44 @@ header{
     grid-template-columns: 1fr 3fr 2fr;
 }
 
+.header-logo{
+    font-size: 30px;
+}
+
+.header-img{
+    height: 35px;
+}
+
 .header-search > input{
-    width: 90%;
+    width: 95%;
+}
+
+.header-children .login{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+.header-children>div{
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+div>p{
+    font-size: 12px;
+    font-weight: 500;
+}
+
+div > span{
+    display: block;
+    margin-top: -2px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.header-cart{
+    font-size:26px;
 }
 }
 

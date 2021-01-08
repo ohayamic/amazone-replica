@@ -3,7 +3,9 @@
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
-    background-color: whitesmoke
+    position: relative;
+    min-height: 100vh;
+    background-color: whitesmoke;
 }
 .checkout-left{
     width: 120%;
@@ -26,13 +28,14 @@
 
 .checkout-content{
     display: flex;
+    flex-direction: column;
     padding: 10px;
     border-radius: 15px;
     background: white;
 }
 
 .checkout-content-boby{
-    width: 60%;
+    width: 90%;
     padding: 10px;
     border-radius: 10px;
     background-color: whitesmoke;
@@ -61,9 +64,10 @@ height: 100px;
 
 .checkout-delete{
     margin: 0 auto;
+    margin-top: 20px;
     width: 100%;
-    font-weight: 600;
-    font-size: 13px;
+    font-weight: 400;
+    font-size: 12px;
     height: 30px;
     border-radius: 5px;
     border-color: #a88734 #9c7e31 #846a29;
@@ -80,12 +84,62 @@ height: 100px;
     background: white;
     border-radius: 15px;
     padding: 10px;
-    width:70%;
-    height: 150px;
+    width:100%;
+    height: 120px;
 }
 
 .checkout-right > div{
     padding: 10px;   
+}
+
+.checkout-right > div > p{
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    font-size: 8px;  
+    font-weight: 700; 
+}
+
+.checkout-right > div > div>span{
+    font-size: 10px;
+}
+
+.checkout-right > div > a>button{
+    font-size: 12px;
+}
+
+.checkout__payment{
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 100%;
+    font-size: smaller;
+    height: 30px;
+    border-radius: 5px;
+    border-color: #a88734 #9c7e31 #846a29;
+    cursor: pointer;
+    background: #f0c14b;
+    opacity: 0.8;
+}
+@media screen and (min-width: 680px) {
+.checkout-delete{
+    font-size: 14px;
+}
+
+.checkout__payment{
+    font-size: 14px;
+}
+.checkout-content{
+    display: flex;
+    flex-direction: row;
+}
+
+.checkout-content-boby{
+    width: 60%;
+}
+.checkout-right > div > p{
+    font-size: 16px;  
+}
+.checkout-right{
+    height: 150px;
 }
 .checkout-right > div > p{
     text-transform: capitalize;
@@ -94,6 +148,14 @@ height: 100px;
     font-weight: 700; 
 }
 
+.checkout-right > div > div>span{
+    font-size: 12px;
+}
+
+.checkout-right > div > a>button{
+    font-size: 16px;
+}
+}
 
 @media screen and (min-width: 960px) {
   .checkout-header{
