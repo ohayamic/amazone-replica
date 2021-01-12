@@ -58,7 +58,7 @@ const Payment = () => {
                 country:address.country,
             }
         })
-        setOpen(true)
+        setOpen(!true)
     }
     
     // click to open form
